@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Georgia, Times, 'Times New Roman';
+            margin: 0;
+            background: linear-gradient(to bottom, #20d4e0, rgba(0, 0, 0, 0));
+        }
+
+        .top-bar {
+            background-color: #ff61d7;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #fff;
+            letter-spacing: -3px;
+            font-size: 40px;
+            margin: 0px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer {
+            background-color: #ff61c2;
+            width: 100%;
+            text-align: center;
+            padding: 40px;
+            color: #170625;
+            margin-top: 80px;
+            font-size: 20px;
+        }
+
+        .fairytail-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: space-between;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .fairytail {
+            background-color: #4af3ff;
+            border-radius: 30px;
+            margin: 25px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .fairytail:hover {
+            transform: scale(1.1);
+        }
+
+        .fairytail .img-container {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .fairytail .img-container:hover {
+            background-color: #FAA0A0;
+        }
+
+        .fairytail .img-container img {
+            max-width: 90%;
+            height: 85%;
+        }
+
+        .fairytale .info {
+            margin-top: 20px;
+        }
+
+        .fairytail .title {
+            margin: 15px 0 7px;
+            letter-spacing: 1px;
+        }
+
+        .generate-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .generate-button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (min-width: 300px) {
+            .fairytail {
+                width: 70%;
+            }
+
+            .fairytail.img-container {
+                margin: auto;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .fairytail {
+                width: 55%;
+            }
+
+            .fairytail .img-container {
+                margin: auto;
+            }
+
+            .generate-button {
+                width: 45%;
+                height: 10%;
+                font-size: 20px;
+            }
+
+            .footer {
+                font-size: 30px;
+            }
+        }
+
+        @media (min-width: 700px) {
+            .fairytail {
+                max-width: 50%;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .fairytail {
+                max-width: 30%;
+            }
+
+            .generate-button {
+                width: 20%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <h1>FAIRYTAIL COLLECTION</h1>
+    </div>
+
+    <div class="fairytail-container" id="fairytail_container"></div>
+
+    <div class="footer">
+        <p>All rights reserved.</p>
+    </div>
+
+    <script>
+        const fairytail = [
+            { id: 1, title: "Natsu Dragneel", image: "Natsu Dragneel.jpg" },
+            { id: 2, title: "Lucy Heartfilia", image: "Lucy Heartfilia.jpg" },
+            { id: 3, title: "Carla", image: "Carla.jpg"},
+            { id: 4, title: "Ezra Scarlet", image: "Ezra Scarlet.jpg" },
+            { id: 5, title: "Juvia Lockser", image: "Juvia Lockser.jpg" },
+            { id: 6, title: "Wendy Marvel ", image: "Wendy Marvell.jpg" },
+            { id: 7, title: "Happy", image: "Happy.jpg" },
+            { id: 8, title: "Gajeel Redfox", image: "Gajeel Redfox.jpg" },
+            { id: 9, title: "Gray Fullbuster", image: "Gray Fullbuster.png" },
+        ];
+
+        const fairytail_container = document.getElementById('fairytail_container');
+
+        const createFairyTailwCard = (fairyTail) => {
+            const fairytailElement = document.createElement('div');
+            fairytailElement.classList.add('fairytail');
+            fairytailElement.classList.add('wow');
+
+            fairytailElement.style.backgroundImage = `url(${fairyTail.image})`;
+
+            const fairytailInnerHTML = `
+                <div class="img-container">
+                    <img src="${fairyTail.image}" alt="${fairyTail.title}">
+                </div>
+                <div class="info">
+                    <h3 class="title">${fairyTail.title}</h3>
+
+                </div>
+                
+            fairytailElement.innerHTML = fairytailInnerHTML;
+            fairytail_container.appendChild(fairytailElement);
+        }
+
+    
+    </script>
+</body>
+
+</html>
